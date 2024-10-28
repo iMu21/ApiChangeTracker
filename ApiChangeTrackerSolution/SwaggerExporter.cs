@@ -76,7 +76,7 @@ public class SwaggerExporter
         if (!files.Any()) return string.Empty;
 
         var lastFile = files.First();
-        lastSerialNumber = int.Parse(lastFile.Name.Split('_')[0]);
+        lastSerialNumber = int.Parse(lastFile.Name.Split('_')[0].Substring(1));
 
         var lastFileContent = File.ReadAllText(lastFile.FullName);
         return ComputeSha256Hash(lastFileContent);
